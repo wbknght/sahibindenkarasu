@@ -101,11 +101,10 @@ export default function ListingDetailPage({ params }: { params: { id: string } }
             <div className="bg-white border border-[#e0e0e0] shadow-sm p-4">
                 {/* Title Header */}
                 <div className="flex justify-between items-start mb-4 border-b border-[#e0e0e0] pb-2">
-                    <div>
+                    <div className="flex-1">
                         <h1 className="text-[18px] font-bold text-[#333] mb-1 leading-tight">{listing.title}</h1>
-                        <span className="text-[14px] text-[#003399] font-bold">{listing.location}</span>
                     </div>
-                    <div className="flex items-center space-x-2 pt-1">
+                    <div className="flex items-center space-x-2 pt-1 pl-4">
                         <button className="text-[11px] text-[#003399] hover:underline flex items-center gap-1">
                             <Printer size={14} /> Yazdır
                         </button>
@@ -136,48 +135,57 @@ export default function ListingDetailPage({ params }: { params: { id: string } }
                     </div>
 
                     {/* Center Column: Details Table */}
-                    <div className="flex-1">
+                    <div className="flex-1 text-right">
+                        {/* Price Display - Relocated Here */}
+                        <div className="text-[20px] font-bold text-[#32669e] mb-2 pb-1">
+                            {listing.price}
+                        </div>
+
                         <div className="mb-4">
                             <Table>
                                 <TableBody>
                                     <TableRow className="h-6 border-b border-[#f0f0f0]">
-                                        <TableCell className="font-bold text-[12px] py-1 text-[#333]">İlan No</TableCell>
+                                        <TableCell className="font-bold text-[12px] py-1 text-[#333] text-left">İlan No</TableCell>
                                         <TableCell className="text-[12px] py-1 text-[#cc0000] font-bold text-right">{listing.id}</TableCell>
                                     </TableRow>
                                     <TableRow className="h-6 border-b border-[#f0f0f0]">
-                                        <TableCell className="font-bold text-[12px] py-1 text-[#333]">İlan Tarihi</TableCell>
+                                        <TableCell className="font-bold text-[12px] py-1 text-[#333] text-left">İlan Tarihi</TableCell>
                                         <TableCell className="text-[12px] py-1 text-[#333] text-right">{listing.date}</TableCell>
                                     </TableRow>
                                     <TableRow className="h-6 border-b border-[#f0f0f0]">
-                                        <TableCell className="font-bold text-[12px] py-1 text-[#333]">Emlak Tipi</TableCell>
+                                        <TableCell className="font-bold text-[12px] py-1 text-[#333] text-left">Emlak Tipi</TableCell>
                                         <TableCell className="text-[12px] py-1 text-[#333] text-right">Satılık Daire</TableCell>
                                     </TableRow>
                                     <TableRow className="h-6 border-b border-[#f0f0f0]">
-                                        <TableCell className="font-bold text-[12px] py-1 text-[#333]">m² (Brüt)</TableCell>
+                                        <TableCell className="font-bold text-[12px] py-1 text-[#333] text-left">Konum</TableCell>
+                                        <TableCell className="text-[12px] py-1 text-[#333] text-right">{listing.location}</TableCell>
+                                    </TableRow>
+                                    <TableRow className="h-6 border-b border-[#f0f0f0]">
+                                        <TableCell className="font-bold text-[12px] py-1 text-[#333] text-left">m² (Brüt)</TableCell>
                                         <TableCell className="text-[12px] py-1 text-[#333] text-right">{listing.details.m2_brut}</TableCell>
                                     </TableRow>
                                     <TableRow className="h-6 border-b border-[#f0f0f0]">
-                                        <TableCell className="font-bold text-[12px] py-1 text-[#333]">m² (Net)</TableCell>
+                                        <TableCell className="font-bold text-[12px] py-1 text-[#333] text-left">m² (Net)</TableCell>
                                         <TableCell className="text-[12px] py-1 text-[#333] text-right">{listing.details.m2_net}</TableCell>
                                     </TableRow>
                                     <TableRow className="h-6 border-b border-[#f0f0f0]">
-                                        <TableCell className="font-bold text-[12px] py-1 text-[#333]">Oda Sayısı</TableCell>
+                                        <TableCell className="font-bold text-[12px] py-1 text-[#333] text-left">Oda Sayısı</TableCell>
                                         <TableCell className="text-[12px] py-1 text-[#333] text-right">{listing.details.rooms}</TableCell>
                                     </TableRow>
                                     <TableRow className="h-6 border-b border-[#f0f0f0]">
-                                        <TableCell className="font-bold text-[12px] py-1 text-[#333]">Bina Yaşı</TableCell>
+                                        <TableCell className="font-bold text-[12px] py-1 text-[#333] text-left">Bina Yaşı</TableCell>
                                         <TableCell className="text-[12px] py-1 text-[#cc0000] text-right">{listing.details.age}</TableCell>
                                     </TableRow>
                                     <TableRow className="h-6 border-b border-[#f0f0f0]">
-                                        <TableCell className="font-bold text-[12px] py-1 text-[#333]">Bulunduğu Kat</TableCell>
+                                        <TableCell className="font-bold text-[12px] py-1 text-[#333] text-left">Bulunduğu Kat</TableCell>
                                         <TableCell className="text-[12px] py-1 text-[#333] text-right">{listing.details.floor}</TableCell>
                                     </TableRow>
                                     <TableRow className="h-6 border-b border-[#f0f0f0]">
-                                        <TableCell className="font-bold text-[12px] py-1 text-[#333]">Isıtma</TableCell>
+                                        <TableCell className="font-bold text-[12px] py-1 text-[#333] text-left">Isıtma</TableCell>
                                         <TableCell className="text-[12px] py-1 text-[#333] text-right">{listing.details.heating}</TableCell>
                                     </TableRow>
                                     <TableRow className="h-6 border-b border-[#f0f0f0]">
-                                        <TableCell className="font-bold text-[12px] py-1 text-[#333]">Krediye Uygun</TableCell>
+                                        <TableCell className="font-bold text-[12px] py-1 text-[#333] text-left">Krediye Uygun</TableCell>
                                         <TableCell className="text-[12px] py-1 text-[#cc0000] font-bold text-right py-1">Evet</TableCell>
                                     </TableRow>
                                 </TableBody>
@@ -187,11 +195,6 @@ export default function ListingDetailPage({ params }: { params: { id: string } }
 
                     {/* Right Column: Seller Box & Actions */}
                     <div className="w-[280px] space-y-4">
-                        {/* Price Display - Relocated */}
-                        <div className="text-[20px] font-bold text-[#32669e] text-right mb-2">
-                            {listing.price}
-                        </div>
-
                         {/* Seller Box */}
                         <div className="border border-[#e0e0e0] bg-[#fcfcfc] shadow-sm">
                             <div className="bg-[#f5f5f5] px-3 py-2 border-b border-[#e0e0e0]">
@@ -334,3 +337,4 @@ export default function ListingDetailPage({ params }: { params: { id: string } }
         </div>
     );
 }
+
