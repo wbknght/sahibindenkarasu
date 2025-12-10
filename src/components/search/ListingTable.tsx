@@ -1,7 +1,6 @@
 
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import {
     Table,
@@ -11,42 +10,43 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
 
-// Mock Data matching the screenshot structure
-const listings = Array.from({ length: 20 }).map((_, i) => ({
+// Mock Data
+const listings = Array.from({ length: 25 }).map((_, i) => ({
     id: i,
     image: "https://placehold.co/120x90/eee/31343C?text=Resim",
-    title: `Sahibinden Satılık Lüks Daire ${i + 1} - Fırsat!`,
-    price: `${(Math.floor(Math.random() * 200) + 100) * 10000} TL`, // Random price like 1.500.000 TL
+    title: `Fırsat Daire! Metrobüse 5 dk, Güney Cephe ${i + 1}`,
+    price: `${(Math.floor(Math.random() * 200) + 100) * 10000} TL`,
     date: "10 Ara 2025",
     location: {
         city: "İstanbul",
         district: "Kadıköy",
-        neighborhood: "Caferağa"
-    }
+        neighborhood: "Caferağa Mah."
+    },
+    m2: 120,
+    rooms: "3+1"
 }));
 
 export function ListingTable() {
     return (
-        <div className="bg-white border rounded-sm">
-            <Table>
-                <TableHeader className="bg-gradient-to-b from-gray-100 to-gray-200 border-b-2 border-gray-300">
-                    <TableRow className="h-8 hover:bg-transparent">
-                        <TableHead className="w-[120px] py-1 text-center font-bold text-gray-700 text-xs border-r">Fotoğraf</TableHead>
-                        <TableHead className="py-1 font-bold text-gray-700 text-xs border-r">İlan Başlığı</TableHead>
-                        <TableHead className="w-[100px] py-1 font-bold text-gray-700 text-xs text-right border-r">m² (Brüt)</TableHead>
-                        <TableHead className="w-[80px] py-1 font-bold text-gray-700 text-xs text-right border-r">Oda Sayısı</TableHead>
-                        <TableHead className="w-[120px] py-1 font-bold text-gray-700 text-xs text-right border-r">Fiyat</TableHead>
-                        <TableHead className="w-[100px] py-1 font-bold text-gray-700 text-xs border-r">İlan Tarihi</TableHead>
-                        <TableHead className="w-[140px] py-1 font-bold text-gray-700 text-xs">İl / İlçe</TableHead>
+        <div className="border-t border-l border-r border-[#ccc]">
+            <Table className="w-full border-collapse">
+                <TableHeader>
+                    <TableRow className="bg-[#f0f0f0] bg-gradient-to-b from-[#ffffff] to-[#e0e0e0] h-7 border-b border-[#ccc]">
+                        <TableHead className="w-[124px] py-0 px-2 text-center font-bold text-[#333] text-[11px] border-r border-[#ccc]">Fotoğraf</TableHead>
+                        <TableHead className="py-0 px-2 font-bold text-[#333] text-[11px] border-r border-[#ccc]">İlan Başlığı</TableHead>
+                        <TableHead className="w-[80px] py-0 px-2 font-bold text-[#333] text-[11px] text-right border-r border-[#ccc]">m² (Brüt)</TableHead>
+                        <TableHead className="w-[80px] py-0 px-2 font-bold text-[#333] text-[11px] text-right border-r border-[#ccc]">Oda Sayısı</TableHead>
+                        <TableHead className="w-[110px] py-0 px-2 font-bold text-[#333] text-[11px] text-right border-r border-[#ccc]">Fiyat</TableHead>
+                        <TableHead className="w-[90px] py-0 px-2 font-bold text-[#333] text-[11px] border-r border-[#ccc]">İlan Tarihi</TableHead>
+                        <TableHead className="w-[130px] py-0 px-2 font-bold text-[#333] text-[11px]">İl / İlçe</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
                     {listings.map((item) => (
-                        <TableRow key={item.id} className="h-[100px] hover:bg-yellow-50 group transition-colors">
-                            <TableCell className="p-1 border-r text-center align-middle">
-                                <div className="relative w-[120px] h-[90px] mx-auto border border-gray-300">
+                        <TableRow key={item.id} className="h-[95px] border-b border-[#ccc] hover:bg-[#ffffd0] transition-colors group">
+                            <TableCell className="p-1 border-r border-[#eee] text-center align-middle w-[124px]">
+                                <div className="w-[120px] h-[90px] border border-[#ddd] p-[1px] bg-white mx-auto">
                                     <img
                                         src={item.image}
                                         alt="thumb"
@@ -54,30 +54,26 @@ export function ListingTable() {
                                     />
                                 </div>
                             </TableCell>
-                            <TableCell className="p-2 border-r align-middle">
+                            <TableCell className="p-2 border-r border-[#eee] align-middle">
                                 <Link href={`/listing/${item.id}`} className="block">
-                                    <h3 className="text-sm font-semibold text-blue-900 group-hover:underline line-clamp-2 leading-tight">
+                                    <h3 className="text-[12px] font-bold text-[#2e5077] group-hover:underline leading-tight">
                                         {item.title}
                                     </h3>
-                                    <div className="mt-2" />
-                                    <Badge variant="outline" className="text-[10px] text-gray-500 font-normal border-gray-300 h-5 px-1">
-                                        Krediye Uygun
-                                    </Badge>
                                 </Link>
                             </TableCell>
-                            <TableCell className="p-2 border-r text-right text-xs text-gray-600 align-middle">120</TableCell>
-                            <TableCell className="p-2 border-r text-right text-xs text-gray-600 align-middle">3+1</TableCell>
-                            <TableCell className="p-2 border-r text-right font-bold text-blue-900 text-sm align-middle">
+                            <TableCell className="p-2 border-r border-[#eee] text-right text-[11px] text-[#333] align-middle">{item.m2}</TableCell>
+                            <TableCell className="p-2 border-r border-[#eee] text-right text-[11px] text-[#333] align-middle">{item.rooms}</TableCell>
+                            <TableCell className="p-2 border-r border-[#eee] text-right font-bold text-[#32669e] text-[12px] align-middle">
                                 {item.price}
                             </TableCell>
-                            <TableCell className="p-2 border-r text-xs text-gray-600 align-middle">
+                            <TableCell className="p-2 border-r border-[#eee] text-[11px] text-[#333] align-middle">
                                 {item.date}
                             </TableCell>
-                            <TableCell className="p-2 text-xs text-blue-900 align-middle">
+                            <TableCell className="p-2 text-[11px] text-[#333] align-middle leading-tight">
                                 <div className="flex flex-col">
-                                    <span className="font-semibold">{item.location.city}</span>
+                                    <span>{item.location.city}</span>
                                     <span>{item.location.district}</span>
-                                    <span className="text-gray-500">{item.location.neighborhood}</span>
+                                    <span className="text-[#666]">{item.location.neighborhood}</span>
                                 </div>
                             </TableCell>
                         </TableRow>

@@ -1,42 +1,26 @@
-
 import { SearchSidebar } from "@/components/search/SearchSidebar";
 import { ListingTable } from "@/components/search/ListingTable";
-import {
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    BreadcrumbList,
-    BreadcrumbSeparator,
-    BreadcrumbPage,
-} from "@/components/ui/breadcrumb";
 
 export default function SearchPage() {
     return (
-        <div className="container mx-auto px-4 py-4 font-sans">
+        <div className="container mx-auto px-0 py-2 font-sans bg-white">
             {/* Breadcrumb & Title */}
-            <div className="mb-4">
-                <Breadcrumb className="mb-2">
-                    <BreadcrumbList>
-                        <BreadcrumbItem>
-                            <BreadcrumbLink href="/">Anasayfa</BreadcrumbLink>
-                        </BreadcrumbItem>
-                        <BreadcrumbSeparator />
-                        <BreadcrumbItem>
-                            <BreadcrumbLink href="#">Emlak</BreadcrumbLink>
-                        </BreadcrumbItem>
-                        <BreadcrumbSeparator />
-                        <BreadcrumbItem>
-                            <BreadcrumbPage>Konut</BreadcrumbPage>
-                        </BreadcrumbItem>
-                    </BreadcrumbList>
-                </Breadcrumb>
-                <div className="flex justify-between items-center border-b border-gray-300 pb-2">
-                    <h1 className="text-sm font-bold text-gray-800">
-                        Konut <span className="text-gray-500 font-normal">(150.234 ilan)</span>
+            <div className="mb-2 px-4">
+                <div className="text-[11px] text-[#333] mb-2 font-normal flex items-center space-x-1">
+                    <a href="/" className="hover:underline">Anasayfa</a>
+                    <span className="text-[#999]">&gt;</span>
+                    <a href="#" className="hover:underline">Emlak</a>
+                    <span className="text-[#999]">&gt;</span>
+                    <span className="font-bold">Konut</span>
+                </div>
+
+                <div className="flex justify-between items-center bg-gradient-to-b from-[#f7f7f7] to-[#e6e6e6] border border-[#ccc] h-8 px-2 rounded-[2px] mb-3">
+                    <h1 className="text-[12px] font-bold text-[#333]">
+                        Konut <span className="text-[#666] font-normal text-[11px]">(150.234 ilan)</span>
                     </h1>
-                    <div className="flex items-center space-x-2 text-xs">
+                    <div className="flex items-center space-x-2 text-[11px] text-[#333]">
                         <span>Sıralama:</span>
-                        <select className="border border-gray-300 rounded px-2 h-7 bg-white text-gray-700">
+                        <select className="border border-[#ccc] rounded-[2px] h-6 bg-white text-[#333] text-[11px] px-1">
                             <option>Fiyata Göre (Önce En Yüksek)</option>
                             <option>Fiyata Göre (Önce En Düşük)</option>
                             <option>Tarihe Göre (Önce En Yeni)</option>
@@ -46,24 +30,27 @@ export default function SearchPage() {
             </div>
 
             {/* Layout: Sidebar + Results */}
-            <div className="flex flex-col md:flex-row items-start">
+            <div className="flex flex-col md:flex-row items-start px-4">
                 <SearchSidebar />
 
-                <div className="flex-1 w-full">
-                    <div className="mb-2 bg-blue-50 border border-blue-200 p-2 text-xs text-blue-800 rounded-sm">
+                <div className="flex-1 w-full min-w-0">
+                    {/* Info Box */}
+                    <div className="mb-2 bg-[#e6f2ff] border border-[#bce8f1] p-2 text-[11px] text-[#31708f] rounded-[2px]">
                         Aradığınız kriterlere uygun <strong>150.234</strong> ilan bulundu.
                     </div>
 
                     <ListingTable />
 
-                    <div className="mt-6 flex justify-center">
-                        {/* Pagination placeholder */}
-                        <div className="flex space-x-1 text-xs font-bold">
-                            <button className="w-8 h-8 flex items-center justify-center border hover:bg-gray-100">1</button>
-                            <button className="w-8 h-8 flex items-center justify-center border hover:bg-gray-100 bg-blue-600 text-white">2</button>
-                            <button className="w-8 h-8 flex items-center justify-center border hover:bg-gray-100">3</button>
-                            <span className="flex items-center justify-center px-2">...</span>
-                            <button className="w-8 h-8 flex items-center justify-center border hover:bg-gray-100">50</button>
+                    {/* Pagination Classic */}
+                    <div className="mt-4 flex justify-center mb-8">
+                        <div className="flex items-center space-x-1 text-[12px]">
+                            <button className="h-6 px-2.5 border border-[#ccc] bg-white text-[#333] hover:bg-[#eee] rounded-[2px]">Prev</button>
+                            <button className="h-6 px-2.5 border border-[#ccc] bg-[#32669e] text-white font-bold rounded-[2px]">1</button>
+                            <button className="h-6 px-2.5 border border-[#ccc] bg-white text-[#32669e] font-bold hover:bg-[#eee] rounded-[2px]">2</button>
+                            <button className="h-6 px-2.5 border border-[#ccc] bg-white text-[#32669e] font-bold hover:bg-[#eee] rounded-[2px]">3</button>
+                            <span className="px-1 text-[#666]">...</span>
+                            <button className="h-6 px-2.5 border border-[#ccc] bg-white text-[#32669e] font-bold hover:bg-[#eee] rounded-[2px]">50</button>
+                            <button className="h-6 px-2.5 border border-[#ccc] bg-white text-[#333] hover:bg-[#eee] rounded-[2px]">Next</button>
                         </div>
                     </div>
                 </div>
