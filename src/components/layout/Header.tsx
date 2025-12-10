@@ -1,45 +1,43 @@
 import Link from 'next/link';
-import { Search, User } from 'lucide-react';
+import { Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
 export function Header() {
     return (
-        <header className="bg-[#f8f8f8] border-b border-gray-200">
-            <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+        <header className="bg-[#29333f] border-b border-[#1c232b]">
+            <div className="mx-auto w-[1150px] px-0 h-[46px] flex items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="flex-shrink-0 mr-8">
-                    <span className="text-2xl font-bold text-black tracking-tight">
-                        sahibindenkarasu<span className="text-[#ffd300]">.com</span>
-                    </span>
+                <Link href="/" className="flex-shrink-0 mr-4 no-underline">
+                    <div className="bg-[#ffd300] px-2 py-1 flex items-center h-[46px]">
+                        <span className="text-[18px] font-bold text-black tracking-tighter">
+                            sahibindenkarasu.com
+                        </span>
+                    </div>
                 </Link>
 
                 {/* Search Bar */}
-                <div className="flex-1 max-w-xl relative hidden md:flex items-center">
+                <div className="flex-1 max-w-[480px] relative flex items-center ml-2">
                     <Input
                         type="text"
                         placeholder="Kelime, ilan no veya mağaza adı ile ara"
-                        className="w-full h-10 pr-10 border-gray-300 focus-visible:ring-primary"
+                        className="w-full h-[30px] pr-8 border-[#1c232b] bg-[#3b4655] text-white placeholder:text-[#8e9bad] text-[12px] focus-visible:ring-0 rounded-[2px]"
                     />
-                    <Button size="icon" variant="ghost" className="absolute right-0 h-10 w-10 text-gray-500 hover:text-primary">
-                        <Search className="h-5 w-5" />
-                    </Button>
-                    <Link href="#" className="ml-3 text-xs text-blue-700 hover:underline whitespace-nowrap font-medium">
+                    <Search className="h-4 w-4 text-[#8e9bad] absolute right-2" />
+                    <Link href="#" className="ml-2 text-[11px] text-[#8e9bad] hover:underline whitespace-nowrap">
                         Detaylı Arama
                     </Link>
                 </div>
 
                 {/* Right Actions */}
-                <div className="flex items-center space-x-4 ml-4">
-                    <Link href="/login" className="text-xs font-medium text-black hover:text-primary transition-colors">
-                        Giriş Yap
-                    </Link>
-                    <span className="text-gray-300">|</span>
-                    <Link href="/register" className="text-xs font-medium text-black hover:text-primary transition-colors">
-                        Üye Ol
-                    </Link>
+                <div className="flex items-center ml-auto">
+                    <div className="flex items-center space-x-2 text-[11px] text-[#ccc] mr-3">
+                        <Link href="/login" className="hover:text-white hover:underline">Giriş Yap</Link>
+                        <span>|</span>
+                        <Link href="/register" className="hover:text-white hover:underline">Üye Ol</Link>
+                    </div>
 
-                    <Button className="bg-[#32669e] hover:bg-[#204d80] text-white font-bold h-9 px-4 text-xs ml-2">
+                    <Button className="bg-gradient-to-b from-[#408ac7] to-[#2c6fa5] hover:from-[#509ad7] hover:to-[#3c7fb5] text-white font-bold h-[30px] px-3 text-[11px] rounded-[2px] shadow-sm border border-[#20527c] ml-1">
                         Ücretsiz İlan Ver
                     </Button>
                 </div>
