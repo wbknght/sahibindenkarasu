@@ -78,45 +78,48 @@ const listingFeatures = [
 export default function ListingDetailPage({ params }: { params: { id: string } }) {
     return (
         <div className="font-arial text-[#333]">
-            {/* Breadcrumb - OUTSIDE the white box */}
-            <div className="text-[11px] text-[#333] mb-3 pb-0">
-                <Link href="/" className="hover:underline text-[#003399]">Anasayfa</Link>
-                <span className="text-[#999] mx-1">&gt;</span>
-                <Link href="#" className="hover:underline text-[#003399]">Emlak</Link>
-                <span className="text-[#999] mx-1">&gt;</span>
-                <Link href="#" className="hover:underline text-[#003399]">Konut</Link>
-                <span className="text-[#999] mx-1">&gt;</span>
-                <Link href="#" className="hover:underline text-[#003399]">Satılık</Link>
-                <span className="text-[#999] mx-1">&gt;</span>
-                <Link href="#" className="hover:underline text-[#003399]">Daire</Link>
-                <span className="text-[#999] mx-1">&gt;</span>
-                <Link href="#" className="hover:underline text-[#003399]">İstanbul Satılık Daire</Link>
-                <span className="text-[#999] mx-1">&gt;</span>
-                <Link href="#" className="hover:underline text-[#003399]">Kadıköy Satılık Daire</Link>
-                <span className="text-[#999] mx-1">&gt;</span>
-                <Link href="#" className="hover:underline text-[#003399]">Caferağa Satılık Daire</Link>
+            {/* Top Row: Breadcrumb & Actions (Grey Background) */}
+            <div className="flex justify-between items-center mb-0 pb-2 pt-2 border-b border-[#e0e0e0]">
+                {/* Breadcrumb */}
+                <div className="text-[11px] text-[#333]">
+                    <Link href="/" className="hover:underline text-[#003399]">Anasayfa</Link>
+                    <span className="text-[#999] mx-1">&gt;</span>
+                    <Link href="#" className="hover:underline text-[#003399]">Emlak</Link>
+                    <span className="text-[#999] mx-1">&gt;</span>
+                    <Link href="#" className="hover:underline text-[#003399]">Konut</Link>
+                    <span className="text-[#999] mx-1">&gt;</span>
+                    <Link href="#" className="hover:underline text-[#003399]">Satılık</Link>
+                    <span className="text-[#999] mx-1">&gt;</span>
+                    <Link href="#" className="hover:underline text-[#003399]">Daire</Link>
+                    <span className="text-[#999] mx-1">&gt;</span>
+                    <Link href="#" className="hover:underline text-[#003399]">İstanbul Satılık Daire</Link>
+                    <span className="text-[#999] mx-1">&gt;</span>
+                    <Link href="#" className="hover:underline text-[#003399]">Kadıköy Satılık Daire</Link>
+                    <span className="text-[#999] mx-1">&gt;</span>
+                    <Link href="#" className="hover:underline text-[#003399]">Caferağa Satılık Daire</Link>
+                </div>
+
+                {/* Actions */}
+                <div className="flex items-center space-x-2">
+                    <button className="text-[11px] text-[#003399] hover:underline flex items-center gap-1">
+                        <Heart size={14} /> Favorilerime Ekle
+                    </button>
+                    <span className="text-[#ccc]">|</span>
+                    <button className="text-[11px] text-[#003399] hover:underline flex items-center gap-1">
+                        <Printer size={14} /> Yazdır
+                    </button>
+                    <span className="text-[#ccc]">|</span>
+                    <button className="text-[11px] text-[#003399] hover:underline flex items-center gap-1">
+                        <Share2 size={14} /> Paylaş
+                    </button>
+                </div>
             </div>
 
-            {/* Main White Content Box */}
-            <div className="bg-white border border-[#e0e0e0] shadow-sm p-4">
-                {/* Title Header */}
-                <div className="flex justify-between items-start mb-4 border-b border-[#e0e0e0] pb-2">
-                    <div className="flex-1">
-                        <h1 className="text-[18px] font-bold text-[#333] mb-1 leading-tight">{listing.title}</h1>
-                    </div>
-                    <div className="flex items-center space-x-2 pt-1 pl-4">
-                        <button className="text-[11px] text-[#003399] hover:underline flex items-center gap-1">
-                            <Printer size={14} /> Yazdır
-                        </button>
-                        <span className="text-[#ccc]">|</span>
-                        <button className="text-[11px] text-[#003399] hover:underline flex items-center gap-1">
-                            <Share2 size={14} /> Paylaş
-                        </button>
-                        <span className="text-[#ccc]">|</span>
-                        <button className="text-[11px] text-[#003399] hover:underline flex items-center gap-1">
-                            <Heart size={14} /> Favorilerime Ekle
-                        </button>
-                    </div>
+            {/* Main White Content Area (Unboxed) */}
+            <div className="bg-white p-4 pt-4">
+                {/* Title Row */}
+                <div className="mb-4 border-b border-[#e0e0e0] pb-2">
+                    <h1 className="text-[18px] font-bold text-[#333] mb-1 leading-tight">{listing.title}</h1>
                 </div>
 
                 <div className="flex items-start space-x-4">
@@ -136,7 +139,7 @@ export default function ListingDetailPage({ params }: { params: { id: string } }
 
                     {/* Center Column: Details Table */}
                     <div className="flex-1 text-right">
-                        {/* Price Display - Relocated Here */}
+                        {/* Price Display */}
                         <div className="text-[20px] font-bold text-[#32669e] mb-2 pb-1">
                             {listing.price}
                         </div>
@@ -244,7 +247,7 @@ export default function ListingDetailPage({ params }: { params: { id: string } }
                         </div>
                     </div>
 
-                    <div className="bg-[#f9f9f9] border border-[#e0e0e0] border-t-0 p-6 mt-[1px]">
+                    <div className="bg-[#f9f9f9] border border-[#e0e0e0] border-t-0 p-6 mn-h-[200px] mt-[1px]">
                         {/* Branding Banner Placeholder */}
                         <div className="mb-8 flex justify-center">
                             <img
@@ -269,7 +272,7 @@ export default function ListingDetailPage({ params }: { params: { id: string } }
                             </p>
                         </div>
 
-                        {/* Features Grid - Active/Inactive Refactor */}
+                        {/* Features Grid */}
                         <div className="max-w-4xl mx-auto space-y-6">
                             {/* Internal Features */}
                             <div>
