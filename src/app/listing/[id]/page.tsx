@@ -25,12 +25,12 @@ const listing = {
         name: "Ahmet Yılmaz",
         membershipDate: "Aralık 2018",
         phone: "0 (532) 123 45 67",
-        image: "https://placehold.co/100x100/png?text=AY"
+        image: "/agent_photo.png"
     },
     images: [
-        "https://placehold.co/800x600/eee/31343C?text=Gorsel+1",
-        "https://placehold.co/800x600/eee/31343C?text=Gorsel+2",
-        "https://placehold.co/800x600/eee/31343C?text=Gorsel+3",
+        "/apartment_exterior.png",
+        "/apartment_interior.png",
+        "/apartment_exterior.png",
     ],
     details: {
         m2_brut: 145,
@@ -207,21 +207,27 @@ export default function ListingDetailPage({ params }: { params: { id: string } }
             {/* Tabs / Description */}
             <div className="mt-6 mb-8">
                 <div className="bg-[#f0f0f0] border-b border-[#ccc] flex">
-                    <div className="bg-[#ffd300] px-4 py-2 text-[12px] font-bold text-[#333] border-t-2 border-[#cca900] cursor-default">
+                    <div className="bg-[#ffd300] px-4 py-2 text-[12px] font-bold text-[#333] border-t-2 border-[#cca900] cursor-default bg-white border-b-white z-10 -mb-[1px]">
                         İlan Detayları
                     </div>
                     <div className="px-4 py-2 text-[12px] font-bold text-[#666] hover:text-[#333] cursor-pointer">
                         Konum
                     </div>
+                    <div className="px-4 py-2 text-[12px] font-bold text-[#666] hover:text-[#333] cursor-pointer">
+                        Harita
+                    </div>
+                    <div className="px-4 py-2 text-[12px] font-bold text-[#666] hover:text-[#333] cursor-pointer">
+                        Sokak Görünümü
+                    </div>
                 </div>
 
-                <div className="bg-[#f9f9f9] border border-[#e0e0e0] border-t-0 p-6 mn-h-[200px]">
+                <div className="bg-[#f9f9f9] border border-[#e0e0e0] border-t-0 p-6 mn-h-[200px] mt-[1px]">
                     {/* Branding Banner Placeholder */}
                     <div className="mb-8 flex justify-center">
                         <img
-                            src="https://placehold.co/600x150/white/32669e?text=SONSUZ+GYO"
+                            src="/real_estate_logo.png"
                             alt="Branding"
-                            className="border border-[#ccc] shadow-sm"
+                            className="border border-[#ccc] shadow-sm max-h-[150px] object-contain bg-white p-2 w-[600px]"
                         />
                     </div>
 
@@ -285,9 +291,9 @@ export default function ListingDetailPage({ params }: { params: { id: string } }
                     {/* Footer Banner */}
                     <div className="mt-8 flex justify-center border-t border-[#e0e0e0] pt-6">
                         <img
-                            src="https://placehold.co/600x100/white/333?text=SONSUZ+GAYRİMENKUL+Güvencesiyle"
+                            src="/real_estate_logo.png"
                             alt="Footer Branding"
-                            className="border border-[#ccc] shadow-sm"
+                            className="border border-[#ccc] shadow-sm max-h-[80px] object-contain bg-white p-2"
                         />
                     </div>
                 </div>
@@ -295,3 +301,4 @@ export default function ListingDetailPage({ params }: { params: { id: string } }
         </div>
     );
 }
+
