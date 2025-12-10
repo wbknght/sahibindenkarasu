@@ -10,7 +10,7 @@ export function Header() {
                 {/* Logo */}
                 <Link href="/" className="flex-shrink-0 mr-8">
                     <span className="text-2xl font-bold text-black tracking-tight">
-                        sahibinden<span className="text-[#ffd300]">.com</span>
+                        sahibindenkarasu<span className="text-[#ffd300]">.com</span>
                     </span>
                 </Link>
 

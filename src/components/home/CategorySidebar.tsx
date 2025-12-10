@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 const categories = [
-    { name: 'Emlak', href: '/category/emlak' },
+    { name: 'Emlak', href: '/search' },
     { name: 'Vasıta', href: '/category/vasita' },
     { name: 'Yedek Parça, Aksesuar, Donanım & Tuning', href: '/category/yedek-parca' },
     { name: 'İkinci El ve Sıfır Alışveriş', href: '/category/alisveris' },

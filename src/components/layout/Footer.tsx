@@ -48,7 +48,7 @@ export function Footer() {
                 </div>
                 <div className="text-center md:text-left pt-6 border-t border-gray-100">
                     <p className="text-xs text-gray-400">
-                        © 2000-2024 sahibinden.com - Tüm Hakları Saklıdır.
+                        © 2000-2024 sahibindenkarasu.com - Tüm Hakları Saklıdır.
                     </p>
                 </div>
             </div>

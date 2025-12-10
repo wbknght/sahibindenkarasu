@@ -7,8 +7,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "sahibinden.com: Satılık, Kiralık, 2.El, Emlak, Oto, Araba",
-  description: "Sahibinden.com clone application",
+  title: "sahibindenkarasu.com: Satılık, Kiralık, 2.El, Emlak, Oto, Araba",
+  description: "sahibindenkarasu.com clone application",
 };
 
 export default function RootLayout({
