@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Phone, MessageSquare, Printer, Share2, Heart, Flag } from "lucide-react";
+import { Phone, MessageSquare, Printer, Share2, Heart, Flag, Check } from "lucide-react";
 import {
     Table,
     TableBody,
@@ -43,6 +43,24 @@ const listing = {
         furnished: false,
         kredi: true,
     }
+};
+
+const features = {
+    internal: [
+        "ADSL", "Ahşap Doğrama", "Alarm (Hırsız)", "Alarm (Yangın)", "Alaturka Tuvalet",
+        "Alüminyum Doğrama", "Amerikan Kapı", "Amerikan Mutfak", "Ankastre Fırın",
+        "Asansör", "Balkon", "Barbekü", "Beyaz Eşya", "Boyalı", "Bulaşık Makinesi"
+    ],
+    external: [
+        "Araç Park Yeri", "Asansör", "Bahçeli", "Fitness", "Güvenlik", "Hidrofor",
+        "Isı Yalıtımı", "Jeneratör", "Kapıcı", "Otopark - Açık", "Otopark - Kapalı",
+        "Oyun Parkı", "PVC Doğrama", "Site İçerisinde", "Su Deposu", "Yangın Merdiveni"
+    ],
+    location: [
+        "Arka Cephe", "Cadde Üzerinde", "Deniz Manzaralı", "E-5'e Yakın", "Havaalanına Yakın",
+        "Manzara - Deniz", "Manzara - Doğa", "Manzara - Şehir", "Merkezde", "Metroya Yakın",
+        "Minibüs / Dolmuş", "Ön Cephe", "Otobüs Durağına Yakın", "Sahile Yakın", "TEM'e Yakın"
+    ]
 };
 
 export default function ListingDetailPage({ params }: { params: { id: string } }) {
@@ -197,23 +215,80 @@ export default function ListingDetailPage({ params }: { params: { id: string } }
                     </div>
                 </div>
 
-                <div className="bg-[#f9f9f9] border border-[#e0e0e0] border-t-0 p-6 min-h-[200px]">
+                <div className="bg-[#f9f9f9] border border-[#e0e0e0] border-t-0 p-6 mn-h-[200px]">
+                    {/* Branding Banner Placeholder */}
+                    <div className="mb-8 flex justify-center">
+                        <img
+                            src="https://placehold.co/600x150/white/32669e?text=SONSUZ+GYO"
+                            alt="Branding"
+                            className="border border-[#ccc] shadow-sm"
+                        />
+                    </div>
+
                     <h3 className="text-center text-[14px] font-bold text-[#333] mb-6">İLAN AÇIKLAMASI</h3>
-                    <div className="text-[12px] text-[#333] leading-relaxed max-w-3xl mx-auto">
+
+                    {/* Description Text */}
+                    <div className="text-[12px] text-[#333] leading-relaxed max-w-3xl mx-auto mb-8 border-b border-[#e0e0e0] pb-6 text-center">
                         <p className="mb-4">
-                            Kadıköy'ün en nezih semtlerinden Caferağa'da, deniz manzaralı, geniş ve ferah dairemiz satılıktır.
+                            <b>SONSUZ GAYRİMENKUL'DEN</b> Kadıköy'ün en nezih semtlerinden Caferağa'da, deniz manzaralı, geniş ve ferah dairemiz sizleri bekliyor.
                         </p>
-                        <p className="font-bold mb-2">Özellikler:</p>
-                        <ul className="list-disc pl-5 space-y-1 mb-4">
-                            <li>3 Oda 1 Salon</li>
-                            <li>Ebeveyn Banyolu</li>
-                            <li>Kapalı Otopark</li>
-                            <li>7/24 Güvenlik</li>
-                            <li>Merkezi Konum</li>
-                        </ul>
+                        <div className="bg-[#76b82a] text-white p-2 rounded-[2px] inline-block mb-4 font-bold">
+                            HAYALLERİNİZE ULAŞMAK ARTIK ÇOK KOLAY!
+                        </div>
                         <p>
                             Metro ve toplu taşımaya yürüme mesafesindedir. Çarşıya, pazara yakındır. Yatırım için uygundur.
                         </p>
+                    </div>
+
+                    {/* Features Grid */}
+                    <div className="max-w-4xl mx-auto space-y-6">
+                        {/* Internal Features */}
+                        <div>
+                            <h4 className="text-[12px] font-bold text-[#32669e] bg-[#fff9c4] p-1 mb-2 border-b border-[#fbc02d]">İç Özellikler</h4>
+                            <div className="grid grid-cols-4 gap-2">
+                                {features.internal.map((feature, i) => (
+                                    <div key={i} className="flex items-center space-x-1">
+                                        <Check size={12} className="text-[#59b300]" strokeWidth={4} />
+                                        <span className="text-[11px] text-[#333]">{feature}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* External Features */}
+                        <div>
+                            <h4 className="text-[12px] font-bold text-[#32669e] bg-[#fff9c4] p-1 mb-2 border-b border-[#fbc02d]">Dış Özellikler</h4>
+                            <div className="grid grid-cols-4 gap-2">
+                                {features.external.map((feature, i) => (
+                                    <div key={i} className="flex items-center space-x-1">
+                                        <Check size={12} className="text-[#59b300]" strokeWidth={4} />
+                                        <span className="text-[11px] text-[#333]">{feature}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Location */}
+                        <div>
+                            <h4 className="text-[12px] font-bold text-[#32669e] bg-[#fff9c4] p-1 mb-2 border-b border-[#fbc02d]">Konum</h4>
+                            <div className="grid grid-cols-4 gap-2">
+                                {features.location.map((feature, i) => (
+                                    <div key={i} className="flex items-center space-x-1">
+                                        <Check size={12} className="text-[#59b300]" strokeWidth={4} />
+                                        <span className="text-[11px] text-[#333]">{feature}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Footer Banner */}
+                    <div className="mt-8 flex justify-center border-t border-[#e0e0e0] pt-6">
+                        <img
+                            src="https://placehold.co/600x100/white/333?text=SONSUZ+GAYRİMENKUL+Güvencesiyle"
+                            alt="Footer Branding"
+                            className="border border-[#ccc] shadow-sm"
+                        />
                     </div>
                 </div>
             </div>
