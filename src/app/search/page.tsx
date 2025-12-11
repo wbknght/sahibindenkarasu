@@ -3,7 +3,7 @@ import { ListingTable } from "@/components/search/ListingTable";
 
 export default function SearchPage() {
     return (
-        <div className="container mx-auto px-0 py-2 font-sans bg-white">
+        <div className="w-[1150px] mx-auto px-0 py-2 font-sans bg-white">
             {/* Breadcrumb & Title */}
             <div className="mb-2 px-4">
                 <div className="text-[11px] text-[#333] mb-2 font-normal flex items-center space-x-1">
